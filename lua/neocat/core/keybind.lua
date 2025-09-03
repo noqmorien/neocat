@@ -5,7 +5,7 @@ M.keybind = {
     {
         mode = "n",
         key = "<leader>nt",
-        command = ":NvimTreeToggle<CR>",
+        command = ":lua Snacks.explorer()<CR>",
         opts = {
             silent = true,
             noremap = true,
@@ -119,6 +119,13 @@ M.keybind = {
         mode = "n",
         key = "<A-h>",
         command = ":bprevious<CR>",
+        opts = { silent = true, noremap = true }
+    },
+    -- dashboard
+    {
+        mode = "n",
+        key = "dd",
+        command = ":lua Snacks.dashboard()<CR>",
         opts = { silent = true, noremap = true }
     },
 }
