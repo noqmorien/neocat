@@ -2,6 +2,7 @@ return {
     {
         'mason-org/mason-lspconfig.nvim',
         config = function()
+            local lspconfig = require'lspconfig'
             local mason_lspconfig = require'mason-lspconfig'
             local mason = require'mason'
             mason.setup {
@@ -17,8 +18,8 @@ return {
                 automatic_enable = true,
                 ensure_installed = {
                     "lua_ls",
-                    "harper_ls"
-                }
+                    "harper_ls",
+                },
             }
         end,
         dependencies = {
@@ -51,6 +52,8 @@ return {
             lspconfig.vimls.setup {
                 capabilities = cmp_lsp.default_capabilities()
             }
+
+
 
             cmp.setup {
                 window = {
@@ -118,9 +121,9 @@ return {
                             maxwidth = 50,
                             maxheight = 10,
                             before = function(entry, vim_item)
-                               if entry.source.name == 'codeium' then
-                                  vim_item.kind = string.format('%s %s', "󱚝", "AI")
-                               end
+                                if entry.source.name == 'codeium' then
+                                    vim_item.kind = string.format('%s %s', "󱚝", "AI")
+                                end
                                 vim_item.menu = ({
                                     codeium = "[Codeium]",
                                     buffer = "[Buffer]",
@@ -180,7 +183,7 @@ return {
                     entries = { name = 'custom', selection_order = 'near_cursor' }
                 }
             })
-    
+
             lspsaga.setup {
                 code_action = {
                     show_server_name = true,
