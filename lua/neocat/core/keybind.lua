@@ -124,7 +124,7 @@ M.keybind = {
     -- dashboard
     {
         mode = "n",
-        key = "dd",
+        key = "<leader>dd",
         command = ":lua Snacks.dashboard()<CR>",
         opts = { silent = true, noremap = true }
     },
