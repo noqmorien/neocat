@@ -15,7 +15,10 @@ return {
             }
             mason_lspconfig.setup {
                 automatic_enable = true,
-                ensure_installed = {}
+                ensure_installed = {
+                    "lua_ls",
+                    "harper_ls"
+                }
             }
         end,
         dependencies = {
@@ -105,7 +108,7 @@ return {
                             with_text = true,
                             mode = "symbol_text",
                             menu = ({
-                                -- codeium = "[Codeium]",
+                                codeium = "[Codeium]",
                                 buffer = "[Buffer]",
                                 nvim_lsp = "[LSP]",
                                 luasnip = "[LuaSnip]",
@@ -115,11 +118,11 @@ return {
                             maxwidth = 50,
                             maxheight = 10,
                             before = function(entry, vim_item)
-                                -- if entry.source.name == 'codeium' then
-                                --    vim_item.kind = string.format('%s %s', "󱚝", "AI")
-                                -- end
+                               if entry.source.name == 'codeium' then
+                                  vim_item.kind = string.format('%s %s', "󱚝", "AI")
+                               end
                                 vim_item.menu = ({
-                                    -- codeium = "[Codeium]",
+                                    codeium = "[Codeium]",
                                     buffer = "[Buffer]",
                                     nvim_lsp = "[LSP]",
                                     luasnip = "[LuaSnip]",
@@ -136,6 +139,7 @@ return {
                     end
                 },
                 sources = cmp.config.sources {
+                    { name = 'codeium' },
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
                     { name = 'nvim_lsp_signature_help' },

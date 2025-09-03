@@ -6,9 +6,6 @@ local keybind = require'neocat.core.keybind'
 
 function M.setup(opt)
 
-    if opt.init then
-        opt.init()
-    end
 
     -- setup neovim config
     local cfg = utils.merge(config.config, opt.config and opt.config or {})
@@ -20,8 +17,8 @@ function M.setup(opt)
 
     pm.check_and_install()
 
-    if opt.after then
-        opt.after()
+    if opt.init then
+        opt.init()
     end
 end
 
