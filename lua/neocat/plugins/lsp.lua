@@ -1,3 +1,38 @@
+local setup_lsp = function(lspconfig, capabilities)
+
+    lspconfig.vimls.setup {
+        capabilities = capabilities
+    }
+
+    lspconfig.rust_analyzer.setup {
+        capabilities = capabilities,
+        settings = {
+            ["rust-analyzer"] = {
+                checkOnSave = true,
+                check = {
+                    command = "clippy"
+                }
+            }
+        }
+    }
+
+    lspconfig.pyright.setup {
+        capabilities = capabilities,
+        settings = {
+            python = {
+                analysis = {
+                    useLibraryCodeForTypes = true,
+                    diagnosticSeverityOverrides = {
+                        reportUnusedVariable = "warning",
+                    },
+                    typeCheckingMode = "off",
+                    diagnosticMode = "off",
+                },
+            }
+        }
+    }
+end
+
 return {
     {
         'mason-org/mason-lspconfig.nvim',
@@ -20,7 +55,11 @@ return {
                     "lua_ls",
                     "harper_ls",
                 },
+                handlers = function(server_name)
+                    print("active lsp: "..server_name)
+                end
             }
+
         end,
         dependencies = {
             { 'mason-org/mason.nvim' },
@@ -49,11 +88,8 @@ return {
             local capabilities = cmp_lsp.default_capabilities()
 
             capabilities.textDocument.completion.completionItem.snippetSupport = true
-            lspconfig.vimls.setup {
-                capabilities = cmp_lsp.default_capabilities()
-            }
 
-
+            setup_lsp(lspconfig, capabilities)
 
             cmp.setup {
                 window = {
