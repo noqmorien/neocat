@@ -19,7 +19,7 @@ local setup_lsp = function(lspconfig, capabilities)
     lspconfig.pyright.setup {
         capabilities = capabilities,
         settings = {
-            python = {
+            ["pyright"] = {
                 analysis = {
                     useLibraryCodeForTypes = true,
                     diagnosticSeverityOverrides = {
@@ -28,6 +28,21 @@ local setup_lsp = function(lspconfig, capabilities)
                     typeCheckingMode = "off",
                     diagnosticMode = "off",
                 },
+            }
+        }
+    }
+
+    lspconfig.pylsp.setup {
+        capabilities = capabilities,
+        settings = {
+            ["pylsp"] = {
+                plugins = {
+                    pycodestyle = {
+                        maxLineLength = 0,
+                        ignore = { "E501" },
+                        enabled = true
+                    }
+                }
             }
         }
     }
