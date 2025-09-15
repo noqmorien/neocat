@@ -5,7 +5,7 @@ M.keybind = {
     {
         mode = "n",
         key = "<leader>nt",
-        command = ":lua Snacks.explorer()<CR>",
+        command = ":NvimTreeToggle<CR>",
         opts = {
             silent = true,
             noremap = true,
@@ -30,7 +30,7 @@ M.keybind = {
     },
     {
         mode = "n",
-        key = "<leader>fg",
+        key = "<leader>lg",
         command = ":Telescope live_grep<CR>",
         opts = { silent = true, noremap = true }
     },
@@ -43,7 +43,7 @@ M.keybind = {
     -- code actions
     {
         mode = "n",
-        key = "cf",
+        key = "<leader>l",
         command = ":Lspsaga finder<CR>",
         opts = { silent = true, noremap = true }
     },
@@ -55,7 +55,7 @@ M.keybind = {
     },
     {
         mode = "n",
-        key = "cd",
+        key = "hd",
         command = ":Lspsaga hover_doc<CR>",
         opts = { silent = true, noremap = true }
     },
@@ -67,7 +67,7 @@ M.keybind = {
     },
     {
         mode = "n",
-        key = "pg",
+        key = "pd",
         command = ":Lspsaga peek_definition<CR>",
         opts = { silent = true, noremap = true }
     },
