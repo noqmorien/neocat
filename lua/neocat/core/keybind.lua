@@ -55,7 +55,7 @@ M.keybind = {
     },
     {
         mode = "n",
-        key = "hd",
+        key = "<leader>hd",
         command = ":Lspsaga hover_doc<CR>",
         opts = { silent = true, noremap = true }
     },
