@@ -1,60 +1,60 @@
 local neocat = require 'neocat'
 
--- gruvbox themes for cmp autocompletion
+-- everforest themes for cmp autocompletion
 local cmp_cosmetics = function()
     -- Selection and menu
-    vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#3a3845", fg = "NONE" })
-    vim.api.nvim_set_hl(0, "Pmenu", { fg = "#e0def4", bg = "#232136" })
+    vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#475258", fg = "NONE" })
+    vim.api.nvim_set_hl(0, "Pmenu", { fg = "#d3c6aa", bg = "#2d353b" })
 
     -- Abbreviation styling
-    vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#434158", bg = "NONE", strikethrough = true })
-    vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#eb6f92", bg = "NONE", bold = true })
-    vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#eb6f92", bg = "NONE", bold = true })
-    vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#9ccfd8", bg = "NONE", italic = true })
+    vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#7a8478", bg = "NONE", strikethrough = true })
+    vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#7fbbb3", bg = "NONE", bold = true })
+    vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#7fbbb3", bg = "NONE", bold = true })
+    vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#83c092", bg = "NONE", italic = true })
 
     -- Custom kind (Codeium)
-    vim.api.nvim_set_hl(0, "CmpItemKindCodeium", { bg = "#3a3845", fg = "#eb6f92", bold = true })
+    vim.api.nvim_set_hl(0, "CmpItemKindCodeium", { bg = "#475258", fg = "#e67e80", bold = true })
 
-    -- Red (Love) group
-    vim.api.nvim_set_hl(0, "CmpItemKindField", { fg = "#eb6f92", bg = "#232136" })
-    vim.api.nvim_set_hl(0, "CmpItemKindProperty", { fg = "#eb6f92", bg = "#232136" })
-    vim.api.nvim_set_hl(0, "CmpItemKindEvent", { fg = "#eb6f92", bg = "#232136" })
+    -- Red group
+    vim.api.nvim_set_hl(0, "CmpItemKindField", { fg = "#e67e80", bg = "#2d353b" })
+    vim.api.nvim_set_hl(0, "CmpItemKindProperty", { fg = "#e67e80", bg = "#2d353b" })
+    vim.api.nvim_set_hl(0, "CmpItemKindEvent", { fg = "#e67e80", bg = "#2d353b" })
 
-    -- Green (Foam) group
-    vim.api.nvim_set_hl(0, "CmpItemKindText", { fg = "#9ccfd8", bg = "#232136" })
-    vim.api.nvim_set_hl(0, "CmpItemKindEnum", { fg = "#9ccfd8", bg = "#232136" })
-    vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { fg = "#9ccfd8", bg = "#232136" })
+    -- Green group
+    vim.api.nvim_set_hl(0, "CmpItemKindText", { fg = "#a7c080", bg = "#2d353b" })
+    vim.api.nvim_set_hl(0, "CmpItemKindEnum", { fg = "#a7c080", bg = "#2d353b" })
+    vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { fg = "#a7c080", bg = "#2d353b" })
 
-    -- Orange (Gold) group
-    vim.api.nvim_set_hl(0, "CmpItemKindConstant", { fg = "#f6c177", bg = "#3a3845" })
-    vim.api.nvim_set_hl(0, "CmpItemKindConstructor", { fg = "#f6c177", bg = "#3a3845" })
-    vim.api.nvim_set_hl(0, "CmpItemKindReference", { fg = "#f6c177", bg = "#3a3845" })
+    -- Orange group
+    vim.api.nvim_set_hl(0, "CmpItemKindConstant", { fg = "#dbbc7f", bg = "#475258" })
+    vim.api.nvim_set_hl(0, "CmpItemKindConstructor", { fg = "#dbbc7f", bg = "#475258" })
+    vim.api.nvim_set_hl(0, "CmpItemKindReference", { fg = "#dbbc7f", bg = "#475258" })
 
-    -- Blue (Pine) group
-    vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = "#3e8fb0", bg = "#232136" })
-    vim.api.nvim_set_hl(0, "CmpItemKindStruct", { fg = "#3e8fb0", bg = "#232136" })
-    vim.api.nvim_set_hl(0, "CmpItemKindClass", { fg = "#3e8fb0", bg = "#232136" })
-    vim.api.nvim_set_hl(0, "CmpItemKindModule", { fg = "#3e8fb0", bg = "#232136" })
-    vim.api.nvim_set_hl(0, "CmpItemKindOperator", { fg = "#3e8fb0", bg = "#232136" })
+    -- Blue group
+    vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = "#7fbbb3", bg = "#2d353b" })
+    vim.api.nvim_set_hl(0, "CmpItemKindStruct", { fg = "#7fbbb3", bg = "#2d353b" })
+    vim.api.nvim_set_hl(0, "CmpItemKindClass", { fg = "#7fbbb3", bg = "#2d353b" })
+    vim.api.nvim_set_hl(0, "CmpItemKindModule", { fg = "#7fbbb3", bg = "#2d353b" })
+    vim.api.nvim_set_hl(0, "CmpItemKindOperator", { fg = "#7fbbb3", bg = "#2d353b" })
 
     -- Neutral
-    vim.api.nvim_set_hl(0, "CmpItemKindVariable", { fg = "#e0def4", bg = "#3a3845" })
-    vim.api.nvim_set_hl(0, "CmpItemKindFile", { fg = "#e0def4", bg = "#3a3845" })
+    vim.api.nvim_set_hl(0, "CmpItemKindVariable", { fg = "#d3c6aa", bg = "#475258" })
+    vim.api.nvim_set_hl(0, "CmpItemKindFile", { fg = "#d3c6aa", bg = "#475258" })
 
-    -- Yellow (Gold) group
-    vim.api.nvim_set_hl(0, "CmpItemKindUnit", { fg = "#f6c177", bg = "#232136" })
-    vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = "#f6c177", bg = "#232136" })
-    vim.api.nvim_set_hl(0, "CmpItemKindFolder", { fg = "#f6c177", bg = "#232136" })
+    -- Yellow group
+    vim.api.nvim_set_hl(0, "CmpItemKindUnit", { fg = "#dbbc7f", bg = "#2d353b" })
+    vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = "#dbbc7f", bg = "#2d353b" })
+    vim.api.nvim_set_hl(0, "CmpItemKindFolder", { fg = "#dbbc7f", bg = "#2d353b" })
 
-    -- Aqua/Teal (Rose) group
-    vim.api.nvim_set_hl(0, "CmpItemKindMethod", { fg = "#ea9a97", bg = "#232136" })
-    vim.api.nvim_set_hl(0, "CmpItemKindValue", { fg = "#ea9a97", bg = "#232136" })
-    vim.api.nvim_set_hl(0, "CmpItemKindEnumMember", { fg = "#ea9a97", bg = "#232136" })
+    -- Aqua group
+    vim.api.nvim_set_hl(0, "CmpItemKindMethod", { fg = "#83c092", bg = "#2d353b" })
+    vim.api.nvim_set_hl(0, "CmpItemKindValue", { fg = "#83c092", bg = "#2d353b" })
+    vim.api.nvim_set_hl(0, "CmpItemKindEnumMember", { fg = "#83c092", bg = "#2d353b" })
 
-    -- Cyan-ish (Iris) group
-    vim.api.nvim_set_hl(0, "CmpItemKindInterface", { fg = "#c4a7e7", bg = "#3a3845" })
-    vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = "#c4a7e7", bg = "#3a3845" })
-    vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = "#c4a7e7", bg = "#3a3845" })
+    -- Magenta group
+    vim.api.nvim_set_hl(0, "CmpItemKindInterface", { fg = "#d699b6", bg = "#475258" })
+    vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = "#d699b6", bg = "#475258" })
+    vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = "#d699b6", bg = "#475258" })
 
 end
 
