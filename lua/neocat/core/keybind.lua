@@ -30,7 +30,7 @@ M.keybind = {
     },
     {
         mode = "n",
-        key = "<leader>lg",
+        key = "<leader>df",
         command = ":Telescope live_grep<CR>",
         opts = { silent = true, noremap = true }
     },
@@ -128,6 +128,32 @@ M.keybind = {
         command = ":lua Snacks.dashboard()<CR>",
         opts = { silent = true, noremap = true }
     },
+    -- Productivity
+    {
+        mode = "n",
+        key = "<A-j>",
+        command = ":m+1<CR>",
+        opts = { silent = true, noremap = true }
+    },
+    {
+        mode = "n",
+        key = "<A-k>",
+        command = ":m-2<CR>",
+        opts = { silent = true, noremap = true }
+    },
+    {
+        mode = "v",
+        key = "<A-j>",
+        command = ":m'>+1<CR>gv=gv",
+        opts = { silent = true, noremap = true }
+    },
+    {
+        mode = "v",
+        key = "<A-k>",
+        command = ":m'<-2<CR>gv=gv",
+        opts = { silent = true, noremap = true }
+    },
+
 }
 
 function M.setup(config)
