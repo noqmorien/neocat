@@ -32,15 +32,15 @@ return {
                     },
                 },
                 explorer = { enabled = false },
-                indent = { enabled = true },
-                input = { enabled = true },
+                indent = { enabled = false },
+                input = { enabled = false },
                 picker = { enabled = true },
                 notifier = { enabled = true },
                 quickfile = { enabled = false },
-                scope = { enabled = true },
-                scroll = { enabled = true },
-                statuscolumn = { enabled = true },
-                words = { enabled = true },
+                scope = { enabled = false },
+                scroll = { enabled = false },
+                statuscolumn = { enabled = false },
+                words = { enabled = false },
             }
         end
     }

@@ -1,11 +1,19 @@
 local setup_lsp = function(lspconfig, capabilities)
 
+    local debounce_duration = 300;
+
     lspconfig.vimls.setup {
-        capabilities = capabilities
+        capabilities = capabilities,
+        flags = {
+            debounce_text_changes = debounce_duration,
+        },
     }
 
     lspconfig.rust_analyzer.setup {
         capabilities = capabilities,
+        flags = {
+            debounce_text_changes = debounce_duration,
+        },
         settings = {
             ["rust-analyzer"] = {
                 checkOnSave = true,
@@ -18,6 +26,9 @@ local setup_lsp = function(lspconfig, capabilities)
 
     lspconfig.pyright.setup {
         capabilities = capabilities,
+        flags = {
+            debounce_text_changes = debounce_duration,
+        },
         settings = {
             ["pyright"] = {
                 analysis = {
@@ -34,14 +45,17 @@ local setup_lsp = function(lspconfig, capabilities)
 
     lspconfig.pylsp.setup {
         capabilities = capabilities,
+        flags = {
+            debounce_text_changes = debounce_duration,
+        },
         settings = {
             ["pylsp"] = {
                 plugins = {
                     pycodestyle = {
-                        maxLineLength = 0,
-                        ignore = { "E501" },
-                        enabled = true
-                    }
+                        enabled = false
+                    },
+                    flake8 = { enabled = false },
+                    pylint = { enabled = false },
                 }
             }
         }
