@@ -70,6 +70,7 @@ return {
 
             ins_left {
                 function() return '▊' end,
+                color = "LualineMode",
                 left_padding = 4,
             }
 
@@ -120,56 +121,14 @@ return {
                         t = 'TERMINAL'
                     }
                     vim.api.nvim_command('hi! LualineMode guifg=' .. mode_color[vim.fn.mode()])
-                    return ' ' .. mode_name[vim.fn.mode()] .. " MODE"
+                    return ''
+                    -- return ' ' .. mode_name[vim.fn.mode()] .. " MODE"
                 end,
                 color = "LualineMode",
                 left_padding = 4,
             }
 
             ins_left {
-                "branch",
-                condition = conditions
-            }
-
-            ins_left {
-                "filename"
-            }
-
-            ins_left {
-                "diff"
-            }
-
-            ins_left {
-                function() return '%=' end
-            }
-
-            ins_right {
-                function()
-                    local msg = 'No Active Lsp'
-                    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-                    local clients = vim.lsp.get_clients()
-                    if next(clients) == nil then return msg end
-                    for _, client in ipairs(clients) do
-                        local filetypes = client.config.filetypes
-                        if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                            return client.name
-                        end
-                    end
-                    return msg
-                end,
-                icon = ' ',
-                color = { fg = colors.fg }
-            }
-
-            ins_right {
-                "o:encoding",
-            }
-
-            ins_right {
-                "fileformat"
-            }
-
-            ins_right {
                 function()
                     local function format_file_size(file)
                         local size = vim.fn.getfsize(file)
@@ -190,16 +149,70 @@ return {
                 condition = conditions.buffer_not_empty,
             }
 
-            ins_right {
+            ins_left {
+                "filename"
+            }
+
+            ins_left {
                 'location'
             }
 
-            ins_right {
+            ins_left {
                 'progress'
             }
 
+            ins_left {
+                function() return '%=' end
+            }
+
             ins_right {
-                function () return '▊' end
+                function()
+                    local msg = 'No Active Lsp'
+                    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+                    local clients = vim.lsp.get_clients()
+                    if next(clients) == nil then return msg end
+                    for _, client in ipairs(clients) do
+                        local filetypes = client.config.filetypes
+                        if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                            return client.name
+                        end
+                    end
+                    return msg
+                end,
+                icon = '󱓞',
+                color = { fg = colors.fg }
+            }
+
+            ins_right {
+                "filetype",
+                icon_only = false,
+                separator = '',
+                padding = { left = 1, right = 0 },
+            }
+
+            ins_right {
+                "o:encoding",
+                fmt = string.upper,
+            }
+
+            ins_right {
+                "diff",
+                symbols = { added = ' ', modified = ' ', removed = ' ' },
+                diff_color = {
+                    added = { fg = colors.green },
+                    modified = { fg = colors.orange },
+                    removed = { fg = colors.red },
+                },
+            }
+
+            ins_right {
+                "branch",
+                condition = conditions
+            }
+
+            ins_right {
+                function () return '▊' end,
+                color = "LualineMode",
             }
 
             lualine.setup(config)
