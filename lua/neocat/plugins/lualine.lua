@@ -121,8 +121,8 @@ return {
                         t = 'TERMINAL'
                     }
                     vim.api.nvim_command('hi! LualineMode guifg=' .. mode_color[vim.fn.mode()])
-                    return ''
-                    -- return ' ' .. mode_name[vim.fn.mode()] .. " MODE"
+                    -- return ''
+                    return ' ' .. mode_name[vim.fn.mode()] .. " MODE"
                 end,
                 color = "LualineMode",
                 left_padding = 4,
@@ -144,8 +144,9 @@ return {
 
                     local file = vim.fn.expand('%:p')
                     if string.len(file) == 0 then return '' end
-                    return format_file_size(file)
+                    return ' ' .. format_file_size(file)
                 end,
+                color = { gui = 'bold' },
                 condition = conditions.buffer_not_empty,
             }
 
@@ -154,11 +155,15 @@ return {
             }
 
             ins_left {
-                'location'
+                'location',
+                icon = '',
+                color = { gui = 'bold' }
             }
 
             ins_left {
-                'progress'
+                'progress',
+                icon = "",
+                color = { gui = 'bold' }
             }
 
             ins_left {
@@ -179,8 +184,8 @@ return {
                     end
                     return msg
                 end,
-                icon = '󱓞',
-                color = { fg = colors.fg }
+                icon = '󱚣',
+                color = { fg = colors.fg, gui = 'bold' }
             }
 
             ins_right {
@@ -207,6 +212,7 @@ return {
 
             ins_right {
                 "branch",
+                icon = '',
                 condition = conditions
             }
 

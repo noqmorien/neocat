@@ -1,37 +1,23 @@
-local setup_lsp = function(lspconfig, capabilities)
+local setup_lsp = function(capabilities)
+    local debounce_duration = 500;
 
-    local debounce_duration = 300;
-
-    lspconfig.vimls.setup {
+    vim.lsp.config("*", {
         capabilities = capabilities,
         flags = {
-            debounce_text_changes = debounce_duration,
-        },
-    }
+            debounce_text_changes = debounce_duration
+        }
+    })
 
-    lspconfig.rust_analyzer.setup {
-        capabilities = capabilities,
-        flags = {
-            debounce_text_changes = debounce_duration,
-        },
+    vim.lsp.config("*", {
         settings = {
-            ["rust-analyzer"] = {
+            ["rust_analyzer"] = {
                 checkOnSave = true,
                 check = {
                     command = "clippy"
                 }
-            }
-        }
-    }
-
-    lspconfig.pyright.setup {
-        capabilities = capabilities,
-        flags = {
-            debounce_text_changes = debounce_duration,
-        },
-        settings = {
+            },
             ["pyright"] = {
-                analysis = {
+                 analysis = {
                     useLibraryCodeForTypes = true,
                     diagnosticSeverityOverrides = {
                         reportUnusedVariable = "warning",
@@ -39,16 +25,7 @@ local setup_lsp = function(lspconfig, capabilities)
                     typeCheckingMode = "off",
                     diagnosticMode = "off",
                 },
-            }
-        }
-    }
-
-    lspconfig.pylsp.setup {
-        capabilities = capabilities,
-        flags = {
-            debounce_text_changes = debounce_duration,
-        },
-        settings = {
+            },
             ["pylsp"] = {
                 plugins = {
                     pycodestyle = {
@@ -59,14 +36,14 @@ local setup_lsp = function(lspconfig, capabilities)
                 }
             }
         }
-    }
+    })
+
 end
 
 return {
     {
         'mason-org/mason-lspconfig.nvim',
         config = function()
-            local lspconfig = require'lspconfig'
             local mason_lspconfig = require'mason-lspconfig'
             local mason = require'mason'
             mason.setup {
@@ -104,7 +81,7 @@ return {
                 return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
             end
 
-            local lspconfig = require'lspconfig'
+            local lspconfig = vim.lsp.config
             local lspkind = require'lspkind'
             lspkind.init {}
 
@@ -115,10 +92,8 @@ return {
             local cmp_lsp = require'cmp_nvim_lsp'
 
             local capabilities = cmp_lsp.default_capabilities()
-
             capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-            setup_lsp(lspconfig, capabilities)
+            setup_lsp(capabilities)
 
             cmp.setup {
                 window = {
@@ -187,7 +162,7 @@ return {
                             maxheight = 10,
                             before = function(entry, vim_item)
                                 if entry.source.name == 'codeium' then
-                                    vim_item.kind = string.format('%s %s', "󱚝", "AI")
+                                    vim_item.kind = string.format('%s %s', "󱚥", "AI")
                                 end
                                 vim_item.menu = ({
                                     codeium = "[Codeium]",
