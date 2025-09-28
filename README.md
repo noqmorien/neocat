@@ -1,4 +1,4 @@
-# neocat
+# Neocat
 Personal minimal neovim configuration
 
 ## Screenshot

@@ -3,15 +3,15 @@ return {
     config = function()
         local smear = require'smear_cursor'
         smear.setup {
-            stifness = 0.5,
-            trailing_stifness = 0.5,
-            stifness_insert_mode = 0.9,
-            trailing_stifness_insert_mode = 0.9,
-            damping = 0.95,
-            damping_insert_mode = 0.95,
-            distance_stop_animating = 0.5,
-            matrix_pixel_threshold = 0.3,
-            time_interval = 7,
+            stiffness = 0.8,                     
+            trailing_stiffness = 0.6,            
+            stiffness_insert_mode = 0.7,         
+            trailing_stiffness_insert_mode = 0.7,
+            damping = 0.95,                      
+            damping_insert_mode = 0.95,          
+            distance_stop_animating = 0.5,       
+            time_interval = 12,
+            legacy_computing_symbols_support = true,
         }
     end
 }

@@ -1,14 +1,7 @@
 local setup_lsp = function(capabilities)
     local debounce_duration = 500;
-
     vim.lsp.config("*", {
         capabilities = capabilities,
-        flags = {
-            debounce_text_changes = debounce_duration
-        }
-    })
-
-    vim.lsp.config("*", {
         settings = {
             ["rust_analyzer"] = {
                 checkOnSave = true,
@@ -35,9 +28,11 @@ local setup_lsp = function(capabilities)
                     pylint = { enabled = false },
                 }
             }
+        },
+        flags = {
+            debounce_text_changes = debounce_duration
         }
     })
-
 end
 
 return {
