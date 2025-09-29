@@ -1,19 +1,14 @@
 return {
     {
-        "neanias/everforest-nvim",
-        version = false,
-        lazy = false,
-        priority = 1000, -- make sure to load this before all the other start plugins
-        -- Optional; default configuration will be used if setup isn't called.
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
         config = function()
-            require("everforest").setup({
-                background = "medium",
-                transparent_background_level = 1,
+            require("catppuccin").setup({
+                flavour = 'mocha',
+                transparent_background = true,
             })
-
-            vim.cmd([[colorscheme everforest]])
-
-            vim.cmd([[colorscheme everforest]])
+            vim.cmd([[colorscheme catppuccin]])
         end,
-    }
+    },
 }
