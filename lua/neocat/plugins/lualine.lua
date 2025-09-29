@@ -5,16 +5,16 @@ return {
             local themes = require'lualine.themes.auto'
             local lualine = require'lualine'
             local colors = {
-                black        = '#232136',
-                white        = '#e0def4',
-                red          = '#eb6f92',
-                green        = '#9ccfd8',
-                blue         = '#458588',
-                yellow       = '#f6c177',
-                gray         = '#434158',
-                darkgray     = '#3a3845',
-                lightgray    = '#504945',
-                inactivegray = '#7c6f64',
+                black        = '#1e1e2e',
+                white        = '#cdd6f4',
+                red          = '#f38ba8',
+                green        = '#a6e3a1',
+                blue         = '#89b4fa',
+                yellow       = '#f9e2af',
+                gray         = '#6c7086',
+                darkgray     = '#313244',
+                lightgray    = '#45475a',
+                inactivegray = '#7f849c',
             }
 
             local config = {
