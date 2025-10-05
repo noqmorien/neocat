@@ -60,7 +60,7 @@ end
 
 neocat.setup {
     init = function()
-        cmp_cosmetics();
+        -- cmp_cosmetics();
     end,
     config = {
     },
