@@ -57,10 +57,19 @@ local cmp_cosmetics = function()
     vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = "#f5c2e7", bg = "#313244" })
 end
 
+local anchor_linux_development = function()
+    -- supports to *.pbuild format
+    vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+        pattern = "*.pbuild",
+        command = "set filetype=make"
+    })
+end
+
 
 neocat.setup {
     init = function()
         -- cmp_cosmetics();
+        anchor_linux_development();
     end,
     config = {
     },
