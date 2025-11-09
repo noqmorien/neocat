@@ -30,7 +30,7 @@ M.keybind = {
     },
     {
         mode = "n",
-        key = "<leader>df",
+        key = "<leader>fg",
         command = ":Telescope live_grep<CR>",
         opts = { silent = true, noremap = true }
     },
@@ -55,7 +55,7 @@ M.keybind = {
     },
     {
         mode = "n",
-        key = "<leader>hd",
+        key = "cd",
         command = ":Lspsaga hover_doc<CR>",
         opts = { silent = true, noremap = true }
     },

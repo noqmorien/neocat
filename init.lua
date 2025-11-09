@@ -65,11 +65,20 @@ local anchor_linux_development = function()
     })
 end
 
+local php_blade_fix = function()
+    -- fix error on *.blade.php
+    vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+        pattern = "*.blade.php",
+        command = "set filetype=phtml"
+    })
+end
+
 
 neocat.setup {
     init = function()
         -- cmp_cosmetics();
-        anchor_linux_development();
+        anchor_linux_development()
+        php_blade_fix()
     end,
     config = {
     },

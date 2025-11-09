@@ -8,7 +8,7 @@ return {
             snacks.setup {
                 bigfile = { enabled = true },
                 dashboard = { 
-                    enabled = false,
+                    enabled = true,
                     preset = {
                         header = [[
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -32,15 +32,15 @@ return {
                     },
                 },
                 explorer = { enabled = false },
-                indent = { enabled = false },
+                indent = { enabled = true },
                 input = { enabled = false },
                 picker = { enabled = true },
                 notifier = { enabled = true },
-                quickfile = { enabled = false },
-                scope = { enabled = false },
+                quickfile = { enabled = true },
+                scope = { enabled = true },
                 scroll = { enabled = false },
                 statuscolumn = { enabled = false },
-                words = { enabled = false },
+                words = { enabled = true },
             }
         end
     }
