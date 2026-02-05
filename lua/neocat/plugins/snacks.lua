@@ -6,7 +6,7 @@ return {
         config = function()
             local snacks = require'snacks'
             snacks.setup {
-                bigfile = { enabled = true },
+                bigfile = { enabled = false },
                 dashboard = { 
                     enabled = true,
                     preset = {
@@ -36,11 +36,11 @@ return {
                 input = { enabled = false },
                 picker = { enabled = true },
                 notifier = { enabled = true },
-                quickfile = { enabled = true },
-                scope = { enabled = true },
+                quickfile = { enabled = false },
+                scope = { enabled = false },
                 scroll = { enabled = false },
-                statuscolumn = { enabled = false },
-                words = { enabled = true },
+                statuscolumn = { enabled = true },
+                words = { enabled = false },
             }
         end
     }

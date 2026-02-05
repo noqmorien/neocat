@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = {
-    termguicolors = true,
+    termguicolors = false,
     fsync = true,
     undofile = true,
     completeopt = 'menuone,noinsert,noselect',
