@@ -33,14 +33,14 @@ return {
                 },
                 explorer = { enabled = false },
                 indent = { enabled = true },
-                input = { enabled = false },
+                input = { enabled = true },
                 picker = { enabled = true },
                 notifier = { enabled = true },
                 quickfile = { enabled = false },
                 scope = { enabled = false },
-                scroll = { enabled = false },
+                scroll = { enabled = true },
                 statuscolumn = { enabled = true },
-                words = { enabled = false },
+                words = { enabled = true },
             }
         end
     }

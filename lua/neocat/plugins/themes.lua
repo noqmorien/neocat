@@ -16,8 +16,8 @@ return {
                 invert_selection = false,
                 invert_signs = false,
                 invert_tabline = false,
-                transparent_mode = true,
-                contrast = 'hard',
+                transparent_mode = false,
+                contrast = 'medium',
             })
             vim.cmd([[colorscheme gruvbox]])
         end,

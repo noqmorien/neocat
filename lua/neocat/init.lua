@@ -7,11 +7,10 @@ local keybind = require'neocat.core.keybind'
 function M.setup(opt)
 
 
-    -- setup neovim config
+    -- Set up Neovim config
     local cfg = utils.merge(config.config, opt.config and opt.config or {})
     config.setup(cfg)
-    
-    -- setup keybind
+    -- set up keybind
     local kbcfg = vim.list_extend(keybind.keybind, opt.keybind and opt.keybind or {})
     keybind.setup(kbcfg)
 

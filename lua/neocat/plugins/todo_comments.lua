@@ -3,15 +3,16 @@ return {
         'folke/todo-comments.nvim',
         config = function()
             require'todo-comments'.setup {
-                signs = true, -- show icons in the signs column
-                sign_priority = 8, -- sign priority
-                -- keywords recognized as todo comments
+                signs = true, -- Show icons in the signs column
+                sign_priority = 8, -- Sign priority
+                -- keywords recognized as to do comments
                 keywords = {
                     FIX = {
                         icon = " ", -- icon used for the sign, and in search results
                         color = "error", -- can be a hex color, or a named color (see below)
                         alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
-                        -- signs = false, -- configure signs for some keywords individually
+                        -- signs = true,
+                        -- Configure signs for some keywords individually
                     },
                     TODO = { icon = " ", color = "info" },
                     HACK = { icon = "󰈸 ", color = "warning" },
