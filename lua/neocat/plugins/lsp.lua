@@ -51,13 +51,13 @@ return {
                 }
             }
             mason_lspconfig.setup {
-                automatic_enable = true,
+                automatic_installation = true,
                 ensure_installed = {
                     "lua_ls",
                     "harper_ls",
                 },
                 handlers = function(server_name)
-                    print("active lsp: "..server_name)
+                    vim.lsp.enable(server_name)
                 end
             }
 
