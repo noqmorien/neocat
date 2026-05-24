@@ -10,7 +10,7 @@ return {
             damping = 0.95,
             damping_insert_mode = 0.95,
             distance_stop_animating = 0.5,
-            time_interval = 5,
+            time_interval = 12,
             legacy_computing_symbols_support = true,
         }
     end
