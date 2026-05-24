@@ -33,6 +33,18 @@ M.config = {
 }
 
 function M.setup(config)
+    -- Run once: base editor settings
+    vim.cmd([[
+        autocmd!
+        filetype on
+        filetype indent on
+        filetype plugin on
+        syntax on
+        set nowrap
+        set t_Co=256
+        set t_ut=
+    ]])
+
     for key, value in pairs(config) do
         -- set fillchars
         if key == "fillchars" then
@@ -40,16 +52,6 @@ function M.setup(config)
             goto continue
         end
         -- set commands
-        vim.cmd([[
-            autocmd!
-            filetype on
-            filetype indent on
-            filetype plugin on
-            syntax on
-            set nowrap
-            set t_Co=256
-            set t_ut=
-        ]])
         if key == "commands" then
             vim.cmd(value)
             goto continue
